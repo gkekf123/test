@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3 class="stopTimeout">누르면 경고창이 나오지 않는다</h3>
+
+    <script>
+      // setInterval 사용방법이 동일
+
+      /*
+        var stop = setTimeout(function () {
+        alert("그만자");
+        }, 5000);
+     */
+
+      // 중지
+      var stopTimeout = document.querySelector(".stopTimeout");
+      stopTimeout.onclick = function () {
+        clearTimeout(stop);
+        alert("중지");
+      };
+
+      //   setTimeout(test, 5000, "hello World")
+      setTimeout(test("hello"), 5000);
+      function test(x) {
+        return function () {
+          alert("이거 방탄유리야 새끼야" + x);
+        };
+      }
+    </script>
+  </body>
+</html>

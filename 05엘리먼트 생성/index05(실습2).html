@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>
+      삭제 버튼은 만들당시에 이벤트를 걸면 된다<br />
+      input은 지우는게 아니라 display를 제어<br />
+      할일 목록 만들기
+    </h3>
+    <!-- 1st -->
+    <!-- <div>
+      <input type="text" placeholder="이름 입력" />
+      <button>확인</button>
+    </div>
+    <div>
+      <input type="text" class="todo" placeholder="당신의 할일을 적으세요" />
+      <button id="btn">확인</button>
+      <ul class="list"></ul>
+    </div>
+
+    <script>
+      var list = document.querySelector(".list"); // ul
+      var todo = document.querySelector(".todo");
+
+      btn.addEventListener("click", function () {
+        var li = document.createElement("li");
+        var p = document.createElement("p");
+        var button = document.createElement("button");
+          button.innerHTML = "삭제";
+        var text = document.createTextNode(todo.value);
+
+        button.addEventListener("click", function () {
+          button.onclick = function () {
+            list.removeChild(list.children[0]);
+          };
+        });
+
+        list.appendChild(li);
+        li.appendChild(p);
+        li.appendChild(button);
+        p.appendChild(text);
+
+        todo.value = "";
+      });
+    </script> -->
+
+    <!-- 2st -->
+    <form class="myForm">
+      <h3 class="nameTitle"></h3>
+      <input
+        type="text"
+        type="button"
+        placeholder="이름을 입력하세요"
+        class="nameInput"
+      />
+      <button type="button" id="nameBtn">확인</button>
+    </form>
+
+    <form class="todoForm">
+      <input type="text" placeholder="할일을 작성하세요" class="todoInput" />
+      <button type="button" id="todoBtn">확인</button>
+      <ul class="todoList"></ul>
+    </form>
+
+    <script>
+      // 이름 설정
+      var myForm = document.querySelector(".myForm");
+      var nameTitle = myForm.querySelector(".nameTitle");
+      var nameInput = myForm.querySelector(".nameInput");
+      var nameBtn = myForm.querySelector("#nameBtn");
+
+      nameBtn.addEventListener("click", function () {
+        nameTitle.innerHTML = nameInput.value;
+        nameInput.value = ""; // 값을 공백
+        nameInput.style.display = "none";
+        nameBtn.style.display = "none";
+      });
+
+      // 목록 작성
+      var todoForm = document.querySelector(".todoForm");
+      var todoInput = todoForm.querySelector(".todoInput");
+      var todoList = todoForm.querySelector(".todoList");
+      var todoBtn = todoForm.querySelector("#todoBtn");
+
+      todoBtn.addEventListener("click", function () {
+        var text = todoInput.value; // 값
+        todoInput.value = ""; // 공백
+
+        var li = document.createElement("li");
+        li.innerHTML = text;
+
+        // 삭제 버튼 생성
+        var button = document.createElement("button");
+        button.innerHTML = "삭제";
+        button.type = "button";
+        li.appendChild(button);
+
+        // 삭제 button이 동적으로 생성될 때(인라인, 기본, 표준...가능)
+        // button.addEventListener("click", function() {})
+        // button.onclick = function () {};
+        // <button type="button" onclick="add()">버튼</button>
+        button.onclick = del;
+
+        todoList.appendChild(li);
+      });
+
+      // 삭제
+      function del() {
+        this.parentElement.remove();
+      }
+    </script>
+  </body>
+</html>

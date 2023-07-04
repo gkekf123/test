@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>이벤트 위임</h3>
+    <div>
+      <ul class="box">
+        <li><img src="img/1.jpg" alt="1" width="100" /></li>
+        <li><img src="img/2.jpg" alt="1" width="100" /></li>
+        <li><img src="img/3.jpg" alt="1" width="100" /></li>
+        <li><img src="img/4.jpg" alt="1" width="100" /></li>
+      </ul>
+      결과:
+      <div class="result">
+        <img src="img/1.jpg" alt="결과" width="300" />
+      </div>
+    </div>
+
+    <script>
+      // 방법 1
+      var result = document.querySelector(".result > img");
+      var imgs = document.querySelector(".box");
+
+      imgs.onclick = function () {
+        if (event.target.tagName != "IMG") {
+          return;
+        }
+        result.src = event.target.src;
+      };
+
+      // 방법 2
+      //   var result = document.querySelector(".result > img");
+      //   var box = document.querySelector(".box");
+      //   box.addEventListener("click", function () {
+      //     //ul, li, img에서 전부 동작
+      //     if (event.target.tagName != "IMG") {
+      //       return;
+      //     }
+      //     result.src = event.target.src;
+      //   });
+    </script>
+  </body>
+</html>

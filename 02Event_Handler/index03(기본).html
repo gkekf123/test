@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // JS는 선언구문 위치가 중요
+      // 화면에서 1개만 사용
+      // html로드가 끝난 이후에 실행 됨
+      window.onload = function () {
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+          console.log("콘솔에 안나옴");
+        };
+      };
+    </script>
+    <!-- Error - properties of null (setting 'onclick') -->
+    <!-- <button id="btn">기본 이벤트</button> 위치가 중요 
+    window.onload 사용하면 해결 가능 -->
+    <button id="btn">기본 이벤트</button>
+  </body>
+</html>

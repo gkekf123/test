@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>클래스 속성 제어</h3>
+    <button type="button" class="btn btn-default" id="btn">클래스 변경</button>
+    <script>
+      var btn = document.getElementById("btn");
+      btn.onclick = function () {
+        // btn.id = "xxxxx";
+        // brn.class = "xxxxx";
+        // 클래스를 변경하는 특별한 방법을 제공 해줌
+        console.dir(btn);
+ 
+        console.log(btn.className); // 클래스 이름을 문자열로 반환
+
+        // btn.className = "가나다라";  // (사용 X)
+
+        // console.log(btn.classList); // 클래스 이름을 배열 형태로 반환
+
+        // btn.classList.add("a"); // a클래스 추가
+
+        // btn.classList.remove("btn"); // btn클래스 삭제
+
+        // btn.classList.contains("a"); // a클래스 있다면 true / false
+        // console.log(btn.classList.contains("a"));
+
+        btn.classList.toggle("xxx"); // 누를때 마다 변경 - xxx클래스가 없으면 추가 / 있으면 제거
+      };
+    </script>
+
+    <hr />
+
+    <h3>토글 버튼 - 하나의 버튼으로 2가지 이상의 기능을 하는 버튼()</h3>
+
+    <style>
+      .x {
+        display: block;
+        width: 100px;
+        height: 100px;
+        border: 1px solid red;
+      }
+      .a {
+        background-color: tan;
+      }
+    </style>
+
+    <a href="#" id="x" class="x">마우스 오버영역</a>
+
+    <script>
+      var x = document.getElementById("x");
+
+      x.onmousemove = function () {
+        console.log("마우스 진입");
+
+        x.classList.add("a");
+      };
+
+      x.onmouseout = function () {
+        console.log("마우스 아웃");
+        x.classList.remove("a");
+      };
+    </script>
+
+    <hr />
+
+    <button type="button" id="btn2">토글 버튼</button>
+    <script>
+      var btn = document.getElementById("btn2");
+      btn.onclick = function () {
+        if (btn.classList.contains("b")) {
+          // b 클래스가 있다면
+          btn.classList.remove("b");
+          document.body.style.backgroundColor = "white";
+        } else {
+          // b클래스가 없다면
+          btn.classList.add("b");
+          document.body.style.backgroundColor = "yellow";
+        }
+      };
+    </script>
+  </body>
+</html>

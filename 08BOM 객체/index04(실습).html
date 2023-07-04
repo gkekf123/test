@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .bgImg {
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          margin-left: -100%;
+        }
+        to {
+          opacity: 1;
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 애니메이션이 새롭게 적용되려면, img태그를 새롭게 생성 -->
+    <!-- <div class="imgBox">
+      <img src="img/slide1.jpg" class="bgImg" />
+    </div> -->
+    <div class="slide">
+      <img src="img/slide1.jpg" class="bgImg" />
+    </div>
+
+    <script>
+      //    1st
+      //   var imgBox = document.querySelector(".imgBox");
+      //   var count = 1;
+
+      //   setInterval(function () {
+      //     var bgImg = document.querySelector(".bhImg");
+      //     if (bgImg) {
+      //       imgBox.removeChild(img);
+      //     }
+
+      //     var img = document.createElement("img");
+      //     img.src = "img/slide" + count + ".jpg";
+      //     img.classList.add("bgImg");
+      //     imgBox.innerHTML = "";
+      //     imgBox.appendChild(img);
+      //     count++;
+      //     if (count > 4) {
+      //       count = 1;
+      //     }
+      //   }, 2000);
+
+      //    2st
+      setInterval(changeImg, 2000);
+      var count = 1;
+      function changeImg() {
+        // console.log(1);
+
+        // 2초마다 이미지 태그 생성
+        var img = document.createElement("img");
+
+        img.src = "img/slide" + ++count + ".jpg";
+        img.classList.add("bgImg");
+        // console.log(img);
+
+        // 기존 이미지 삭제
+        var slide = document.querySelector(".slide");
+        slide.removeChild(slide.firstElementChild);
+
+        // 생성한 이미지 추가
+        slide.appendChild(img);
+
+        if (count == 4) count = 0;
+      }
+    </script>
+  </body>
+</html>

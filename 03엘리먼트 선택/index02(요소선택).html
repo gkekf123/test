@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>css문법으로 엘리먼트 얻기</h1>
+    <ul class="box">
+      <li>안녕</li>
+      <li>hello</li>
+      <li>bye</li>
+    </ul>
+    <button id="btn">쿼리 셀렉터</button>
+    <script>
+      var btn = document.querySelector("#btn");
+      //   var li = document.querySelector(".box li"); // 한개만 얻음
+      var li = document.querySelectorAll(".box li"); // 여러개 얻음
+
+      btn.addEventListener("click", function () {
+        console.log(li);
+
+        for (var i = 0; i < li.length; i++) {
+          // console.log(li[i])
+          li[i].innerHTML = "바껴라 얍";
+        }
+      });
+    </script>
+  </body>
+</html>

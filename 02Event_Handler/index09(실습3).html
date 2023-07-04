@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>(select에서 value속성은 선택된 값을 의미합니다)</p>
+    <p>change 이벤트</p>
+
+    <h2 id="title">단어를 선택하세요</h2>
+
+    <select id="selector">
+      <option>선택</option>
+      <option>hello</option>
+      <option>안녕하세요</option>
+      <option>尼河吳</option>
+    </select>
+
+    <script>
+      //   1st
+      var title = document.getElementById("title");
+      var selector = document.getElementById("selector");
+
+      selector.addEventListener("change", function () {
+        if (selector.value == "hello") {
+          title.textContent = "영어입니다";
+        } else if (selector.value == "안녕하세요") {
+          title.textContent = "한국어입니다";
+        } else {
+          title.textContent = "중국어입니다";
+        }
+      });
+    </script>
+  </body>
+</html>

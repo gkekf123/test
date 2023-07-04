@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>
+      자바스크립트 카운트(인라인 이벤트를 이용해서 innerHTML value 속성을
+      이용해서 카운트처리하세요)
+    </h2>
+    <h3>필요한 속성을 추가해도 됩니다</h3>
+    <input type="number" value="0" id="number" />
+    <button class="plus" onclick="add()">+</button>
+    <button class="min" onclick="add()">-</button>
+    <script>
+      // 1st
+      // var number = document.getElementById("number");
+
+      // function increment() {
+      //   if (number.value < 0) {
+      //     alert("0보다 작을 수 없다");
+      //     return;
+      //   }
+      //   number.value++;
+      // }
+
+      // function decrement() {
+      //   if (number.value > 0) {
+      //     number.value--;
+      //   }
+      // }
+
+      var number = document.querySelector("#number");
+
+      // 2 st (인라인)
+      // var plus = document.querySelector(".plus");
+      // plus.addEventListener("click", function () {
+      //   number.value++; // 문자열이 들어가서 자동형변환 된다
+      //  console.log(number);
+      // });
+
+      // 3st
+      function add(button) {
+        if (button.innerText == "+") {
+          number.value++;
+        } else {
+          if (number.value < 0) {
+            alert("0보다 작을 수 없다");
+            return; // or return false;
+          }
+          number.value--;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>자기 자신 삭제</h3>
+
+    <div>
+      <button id="del">삭제</button>
+    </div>
+    <script>
+      var del = document.getElementById("del");
+
+      del.onclick = function () {
+        /* 자기 자신 삭제 */
+        // del.remove();
+        this.remove();
+      };
+    </script>
+
+    <hr />
+
+    <ul>
+      <button id="add">자식 추가 버튼</button>
+      <button id="remove">자식 삭제 버튼</button>
+      <ul class="list"></ul>
+    </ul>
+    <script>
+      var list = document.querySelector(".list"); // ul
+      var add = document.getElementById("add"); // 추가 버튼
+      var remove = document.getElementById("remove"); // 삭제 버튼
+
+      add.onclick = function () {
+        var li = document.createElement("li");
+        li.innerHTML = "삭제 테스트";
+
+        list.appendChild(li); // 추가
+      };
+
+      remove.onclick = function () {
+        // 부모님.removeChild(삭제 할 태그);
+        // console.log(list.children); // 자식들을 배여롤 보여줌
+
+        list.removeChild(list.children[0]); // 첫번쨰
+        // list.removeChild(list.children[list.children.length - 1]); // 마지막
+      };
+    </script>
+  </body>
+</html>

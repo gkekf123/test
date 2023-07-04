@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="typing">
+    <input type="button" id="push" value="PUSH">
+   <script>
+    const inputType = document.querySelector("#typing")
+    const inputClick = document.querySelector("#push")
+
+    const handleTyping = function() {
+        console.log("타이핑 O")
+    }
+
+    const handleClick = function() {
+        console.log("클릭 O")
+    }
+
+    inputType.onkeydown = handleTyping
+    inputClick.onclick = handleClick
+   </script>
+</html>

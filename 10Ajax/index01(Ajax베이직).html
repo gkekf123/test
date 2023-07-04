@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 동기 -> 순차적 실행
+      // 비동기 -> 비순차적 실행
+
+      //   1st
+      //   console.log(1);
+
+      //   fetch("hi.txt").then(function (response) {
+      //     response.text().then(function (text) {
+      //       console.log(text);
+      //     });
+      //   });
+
+      //   console.log(2);
+
+      /*************************************************************************************/
+
+      //   2st
+      // fetchfmf 사용하면 promise객체를 반환 (상태를 가지고 있는 객체)
+      // pending = 대기중
+      // fullfiled = 성공
+      // reject = 실패
+
+      //   console.log(fetch("hi.txt"));
+
+      // var promise = fetch("hi.txt")
+      // promis.then(콜백)
+
+      /*************************************************************************************/
+
+      // 위 코드와 같다
+      // promise객체 안에는 then(콜백) 함수를 사용할 수 있다
+      // 콜백 함수 = 콜 했을 때 백 받을 약속 된 함수
+      //   fetch("hi.txt").then(xxx);
+
+      //   // 콜백 함수
+      //   function xxx(response) {
+      //     console.log(response);
+      //   }
+
+      /*************************************************************************************/
+
+      // 위 코드와 같다
+      // 3st
+      // text()는 body에 있는 데이터를 문자열로 변환 - return : Promise객체
+      //JSOM()는 body에 있는 데이터를 Object로 변환 - return : Promise 객체
+      //   fetch("hi.txt").then(function (response) {
+      //     console.log(response.text()); // Promise
+      //   });
+
+      /*************************************************************************************/
+
+      //   // 4st
+      //   fetch("hi.txt").then(function (response) {
+      //     // console.log(response); // status:200 & ok:true = 성공일 떄만
+      //     if (response.status != 200) {
+      //       alert("통신에 실패했다");
+      //       return;
+      //     }
+
+      //     response.text().then(function (data) {
+      //       console.log(data);
+      //     });
+      //   });
+
+      /*************************************************************************************/
+
+      //   응용
+      fetch("hi.txt")
+        .then(function (response) {
+          if (response.status != 200) {
+            console.log("통신 실패");
+            return;
+          }
+          // 이 결과는 fetch함수의 리턴으로 연결 - fetch의 결과
+          return response.text();
+        })
+        .then(function (data) {
+          console.log(1);
+          return data;
+        })
+        .then(function (data) {
+          console.log(2);
+          return data;
+        })
+        .then(function (data) {
+          console.log(data);
+
+          // 에러 시 실행
+        })
+        .catch(function (e) {
+          console.log(e);
+        });
+    </script>
+  </body>
+</html>
